@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+
 
 
 const data = [
@@ -267,7 +267,7 @@ class App extends Component {
         <p> {d.earliest_start_date}</p>
         <p>{d.latest_end_date}</p>
         <p>{d.description}</p>
-      
+
         </div>
        )}
       </div>
