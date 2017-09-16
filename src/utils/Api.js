@@ -16,7 +16,7 @@ const headers = {
 }
 
 
-export const getAllPosts = () =>
+export const getAllData = () =>
   fetch(`${api}/526${at}`, { headers })
     .then(res => res.json())
     .then(data => data)
