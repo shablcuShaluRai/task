@@ -1,7 +1,7 @@
 const ACCESS_TOKEN = 'dd0df21c8af5d929dff19f74506c4a8153d7acd34306b9761fd4a57cfa1d483c'
 
 
-var api = 'http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2/opportunities'
+var api = 'http://gisapi-web-staging-1636833739.eu-west-1.elb.amazonaws.com/v2'
 var at =  `?access_token=${ACCESS_TOKEN}`;
 
 let token = localStorage.token
@@ -17,7 +17,19 @@ const headers = {
 
 
 export const getAllData = () =>
-  fetch(`${api}/526${at}`, { headers })
+  fetch(`${api}/opportunities/526${at}`, { headers })
     .then(res => res.json())
     .then(data => data)
     console.log(`${api}/526${at}`);
+
+export const getAllBackground = () =>
+fetch(`${api}/lists/backgrounds${at}`, { headers })
+        .then(res => res.json())
+        .then(data => data)
+        console.log(`${api}/lists/backgrounds${at}`);
+
+  export const getAllSkills = () =>
+    fetch(`${api}/lists/skills${at}`, { headers })
+    .then(res => res.json())
+    .then(data => data)
+  console.log(`${api}/lists/skills${at}`);
