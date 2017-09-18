@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as DataApi from './utils/Api'
 import Background from './Background'
+import moment from 'moment'
 
 
 
@@ -27,6 +28,9 @@ class App extends Component {
 
 
   render() {
+    var startDate = moment(`${this.state.data.earliest_start_date}`).format('L');
+    var endDate = moment(`${this.state.data.latest_end_date}`).format('L')
+    var closeDate = moment(`${this.state.data.applications_close_date}`).format('L')
   return (
    <div className="App">
 
@@ -42,30 +46,31 @@ class App extends Component {
 
       <label htmlFor="startDate">
         <h4> Start Date</h4>
-        <p> {this.state.data.earliest_start_date}</p>
+        <p> {startDate}</p>
       </label>
 
       <label htmlFor="startDate">
         <h4> End Date</h4>
-         <p>{this.state.data.latest_end_date}</p>
+         <p>{endDate}</p>
       </label>
 
 
       <label htmlFor="closeDate">
         <h4> Close Date</h4>
-        <p> {this.state.data.applications_close_date}</p>
+        <p> {closeDate}</p>
       </label>
 
+      <label htmlFor="closeDate">
+        <h4> Background </h4>
+        <Background />
 
+      </label>
 
     </form>
 
 
 
 
-  <Background
-  
-  />
 
       </div>
 
