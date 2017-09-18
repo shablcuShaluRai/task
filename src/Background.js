@@ -1,8 +1,6 @@
 import React,{ Component  } from 'react';
 import * as DataApi from './utils/Api'
 
-import 'react-select/dist/react-select.css';
-
 
 export default class Background extends Component{
 
@@ -18,16 +16,13 @@ export default class Background extends Component{
     console.log(data);
   })
 }
+
   render(){
         return(
       <div>
-
-     <select>
-    {this.state.bgData.map((t,i) => <option key={i} value={t.name}>{t.name}</option>)}
- </select>
-
-
-
+       <select>
+         {this.state.bgData.map((dta,key) => <option key={key} value={dta.name}>{dta.name}</option>)}
+       </select>
       </div>
     )
   }
