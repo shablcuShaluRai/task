@@ -16,16 +16,18 @@ class App extends Component {
   DataApi
   .getAllData()
   .then(data => {
+
     this.setState({data:data })
     console.log(data);
   })
 }
 
   render() {
-    var startDate = moment(`${this.state.data.earliest_start_date}`).format('L');
-    var endDate = moment(`${this.state.data.latest_end_date}`).format('L')
-    var closeDate = moment(`${this.state.data.applications_close_date}`).format('L')
-
+    let startDate = moment(`${this.state.data.earliest_start_date}`).format('L');
+    let endDate = moment(`${this.state.data.latest_end_date}`).format('L')
+    let closeDate = moment(`${this.state.data.applications_close_date}`).format('L')
+    let salary = this.state.data.specifics_info ? this.state.data.specifics_info.salary : 0 ;
+      let selectionprocess = this.state.data.role_info ? this.state.data.role_info.selection_process: "";
   return (
    <div className="App">
 
@@ -33,6 +35,7 @@ class App extends Component {
        <h1> {this.state.data.title} </h1>
      </div>
     <div>
+    <div className="center">
     <form >
       <label htmlFor="description">
         <h4> Role Description</h4>
@@ -65,7 +68,18 @@ class App extends Component {
         <Skills />
       </label>
 
+      <label htmlFor="Salary">
+      <h4> Salary </h4>
+      <p> {salary}</p>
+      </label>
+
+      <label htmlFor="Selection Process">
+        <h4> Selection Process</h4>
+      <p> {selectionprocess}</p>
+      </label>
+
     </form>
+    </div>
     </div>
     </div>
 
